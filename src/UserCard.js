@@ -1,6 +1,7 @@
 import React from 'react'
 
 function UserCard(props) {
+  console.log(props)
   return (
     <div className="card">
       <div className="content">
@@ -12,7 +13,7 @@ function UserCard(props) {
           {props.description}
         </div>
       </div>
-      <div onClick={() => props.handleUserClick(props.id)} className="ui bottom attached button">
+      <div onClick={() => props.handleSelectUser(props.id)} className="ui bottom attached button">
         <i className="add icon"></i>
         View Tweets
       </div>

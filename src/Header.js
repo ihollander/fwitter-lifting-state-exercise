@@ -1,22 +1,16 @@
-import React, { Component } from 'react'
+import React from 'react'
 import Logo from './Logo'
 import Menu from './Menu'
 
-class Header extends Component {
-  state = {
-    darkMode: false
-  }
-
-  render() {
-    return (
-      <div className={`ui fixed menu ${this.state.darkMode ? "inverted" : ""}`}>
-        <Logo />
-        <div className="right menu">
-          <Menu />
-        </div>
+function Header({ darkMode, handleToggleDarkMode }) {
+  return (
+    <div className={`ui fixed menu ${darkMode ? "inverted" : ""}`}>
+      <Logo />
+      <div className="right menu">
+        <Menu handleToggleDarkMode={handleToggleDarkMode} />
       </div>
-    )
-  }
+    </div>
+  )
 }
 
 export default Header
