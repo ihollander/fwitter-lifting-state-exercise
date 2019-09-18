@@ -5,22 +5,14 @@ import { users } from './data/data'
 
 class TweetsContainer extends Component {
   state = {
-    users: [],
-    selectedUserId: null
-  }
-
-  componentDidMount() {
-    this.setState({
-      users: users.map(user => ({ ...user })),
-      selectedUserId: users[0].id
-    })
+    users: users,
+    selectedUserId: users[0].id
   }
 
   handleUpdateLikes = tweetId => {
-    console.log("i liked a tweet in state", tweetId, this.state.selectedUserId)
 
     // we need to return a new array to not mutate state
-    const updatedUsers = users.map(user => {
+    const updatedUsers = this.state.users.map(user => {
       // check if the user is the one we care about updating
       if (user.id !== this.state.selectedUserId) {
         // if not, just return the same user object
@@ -68,11 +60,6 @@ class TweetsContainer extends Component {
   }
 
   render() {
-    if (this.state.selectedUserId === null) {
-      return "LOADING!"
-    }
-
-    console.log("In TweetsContainer, state is", this.state)
     return (
       <div className="ui main container">
         <div className="ui grid">
